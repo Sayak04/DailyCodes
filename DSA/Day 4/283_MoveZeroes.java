@@ -1,5 +1,6 @@
 class Solution {
     public void moveZeroes(int[] nums) {
+        // O(N) time complexity && O(1) space complexity
         int n = nums.length;
         if(n == 1) return; 
         int low = -1, high = -1;
