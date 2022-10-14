@@ -3,6 +3,7 @@ public:
     string discountPrices(string sentence, int discount) {
         vector<string> arr;
         string temp = "";
+        // we split the string and put all into one array
         for(int i = 0; i < sentence.length(); i++) {
             if(sentence[i] == ' ') {
                 arr.push_back(temp);
@@ -11,6 +12,8 @@ public:
                 temp += sentence[i];
         }
         if(temp.size() > 0) arr.push_back(temp);
+        
+        // we loop over the array and check for $(num) and then apply discount to it
         for(int i = 0; i < arr.size(); i++) {
             string help = arr[i];
             bool found = false;
@@ -36,10 +39,14 @@ public:
                     arr[i].pop_back();
             }
         }
+        
+        // at last we put the sliced array back into the string
         string ans = "";
         for(auto it: arr) {
             ans += it + " ";
         }
+        
+        // remove the last trailing space.
         ans.pop_back();
         return ans;
     }
